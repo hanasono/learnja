@@ -1,0 +1,57 @@
+h1,
+h2,
+h3 {
+  font-weight: normal;
+}
+
+#app {
+  width: 70%;
+  padding-left: 15%;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  margin-top: 20px;
+  width: 70%;
+}
+a {
+  color: black;
+}
+a:hover { 
+  color: #42b983;
+}
+.correct {
+  color: green;
+}
+.wrong {
+  color: red;
+}
+.option {
+  width: 80%;
+}
+button {
+  color: #523e22;
+  font-size: 16px;
+  border-radius: 3px;
+  min-height: 30px;
+  min-width: 150px;
+  background-color: #d6e0d4;
+  border: 1px solid grey;
+  box-shadow: 2px 2px #82672e;
+  cursor: pointer;
+  padding: 10px;
+  margin: 10px;
+}
+
+button:hover {
+  background-color: #e6ae85;
+}
+
+#ya {
+  border: solid 1px black;
+  height: 10px;
+  width: 15px;
+}

@@ -1,0 +1,26 @@
+{
+  "name": "learnja",
+  "version": "0.0.1",
+  "description": "learnja",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongodb": "^3.1.0",
+    "vue": "^2.5.16",
+    "webpack": "^4.14.0"
+  },
+  "engines": {
+    "node": "10.x"
+  },
+  "repository": {
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "vue",
+    "express",
+    "mongodb"
+  ]
+}
