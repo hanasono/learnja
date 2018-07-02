@@ -23,22 +23,28 @@ let level_tmpl = `<div class="level">
 </div>`;
 
 let word_tmpl = `<div class="word">
-<h1>{{ word.kanji }}</h1>
-<h3>{{ word.kana }}</h3>
-<button class="play" @click="play">play</button>
+<div class="meaning">
+  <h1>{{ word.kanji }}</h1>
+  <h3>{{ word.kana }}</h3>
+  <button class="play" @click="play">play</button>
+</div>
 <hr />
 <template v-if="state == 0">
+  <div class="options">
     <button class="option" v-for="option in word.options" :key="option" @click="pick(option)">
       {{ option }}
     </button>
+  </div>
 </template>
 <template v-else>
-  <div>
-    <h2 v-bind:class="meaningClass">{{ word.meaning }}</h2>
-    <button @click="next">Next</button>
+  <div class="result">
+    <h3 v-bind:class="meaningClass">{{ word.meaning }}</h3>
+    <h3 class="next" @click="next">Next >></h3>
   </div>
 </template>
 </div>`;
+
+let list_tmpl = ``;
 
 Vue.component('level', {
   template: level_tmpl,
