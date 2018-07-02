@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Learnja</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/level.css">
+    
+  </head>
+  <body>
+    <main>
+      <div id="level">
+        <level />
+      </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="/level.js"></script>
+
+  </body>
+  <script>
+    $(function() {
+      var app = new Vue({
+        el: '#level',
+        created: function() {
+        }
+      });
+        
+      $('#reset').on('click', function(){
+        $.get('/reset', function(data){
+          console.log('reset'); 
+          console.log(data);
+        })
+      });
+    });
+  </script>
+</html>

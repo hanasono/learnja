@@ -59,6 +59,7 @@ var generateWords = function(array) {
 var uri = 'mongodb://'+process.env.DBUSER+':'+process.env.DBPASS+'@'+process.env.DBHOST+':'+process.env.DBPORT+'/'+process.env.DB;
 
 uri = 'mongodb://tangosa:earlhaig@ds113566.mlab.com:13566/words';
+
 console.log('connecting '+ uri);
 
 mongodb.MongoClient.connect(uri, function(err, dbclient) {
@@ -131,8 +132,4 @@ var resetBatch = function() {
   });
 }
 
-// module.exports = {
-  // getBatch : function() {},
-  // b : 'xxx'
-// };
 module.exports = { getBatch:getBatch, closeBatch:closeBatch, resetBatch:resetBatch }

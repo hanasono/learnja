@@ -2,11 +2,23 @@ h1,
 h2,
 h3 {
   font-weight: normal;
+  margin: 20px;
 }
 
-#app {
-  width: 70%;
-  padding-left: 15%;
+.level {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 95vh;
+}
+
+.play {
+  display: none;
+}
+
+.word {
+  padding: 20px;
 }
 
 ul {
@@ -48,10 +60,4 @@ button {
 
 button:hover {
   background-color: #e6ae85;
-}
-
-#ya {
-  border: solid 1px black;
-  height: 10px;
-  width: 15px;
 }
