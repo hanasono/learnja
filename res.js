@@ -108,7 +108,10 @@ mongodb.MongoClient.connect(uri, function(err, dbclient) {
 
 var getBatch = function() {
   if(USER_STATE>LEVEL_COUNT) return [];
-  var result = WORDS.slice(USER_STATE*LEVEL_SIZE, (USER_STATE+1)*LEVEL_SIZE);
+  var data = WORDS.slice(USER_STATE*LEVEL_SIZE, (USER_STATE+1)*LEVEL_SIZE);
+  var result= {data: data};
+  result.USER_STATE=USER_STATE;
+  result.LEVEL_COUNT=LEVEL_COUNT;
   console.log(result)
   return result;
 }

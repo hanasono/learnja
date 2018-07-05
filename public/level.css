@@ -14,7 +14,7 @@ h3 {
 }
 
 .play {
-  display: none;
+  visibility: hidden;
 }
 
 .meaning {
@@ -81,4 +81,28 @@ button:hover {
 h3:hover {
   cursor: pointer;
   text-decoration: underline;
+}
+
+.progressbar {
+  background-color: #d6e0d4;
+  border-radius: 13px; /* (height of inner div) / 2 + padding */
+  padding: 3px;
+  border: 1px solid grey;
+  box-shadow: 2px 2px #82672e;
+  width: 100%;
+  min-height: 28px;
+  box-sizing: border-box;
+}
+
+.progressbar > span {
+  position: absolute;
+  text-align: center;
+  width: 95%;
+}
+.progressbar > div {
+  position: absolute;
+  background-color: #82672e;
+  width: 100%; /* Adjust with JavaScript */
+  height: 20px;
+  border-radius: 10px;
 }

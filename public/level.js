@@ -1,24 +1,24 @@
 let ls = {
   start: 0,
   word: 1,
-  end: 2,
-  stat: 3
+  end: 2
 };
 
 let level_tmpl = `<div class="level">
 <template v-if="state == ls.start">
   <button @click="get()">New Batch</button>
+  <button id="reset">Reset</button>
 </template>
 <template v-else-if="state == ls.word">
+  <div class="progressbar">
+    <span>{{USER_STATE + "/" + LEVEL_COUNT}}</span>
+    <div v-bind:style='{width: USER_STATE/LEVEL_COUNT*100 + "%"}'></div>
+  </div>
   <word :word="word" v-on:next-word="next" v-on:wrong-word="wrong" />
 </template>
 <template v-else-if="state == ls.end">
   <button @click="review()">Review Batch</button>
   <button @click="close()">Close Batch</button>
-</template>
-<template v-if="state == ls.stat">
-    <button @click="get()">New Batch</button>
-    <button id="reset">Reset</button>
 </template>
 </div>`;
 
@@ -29,7 +29,7 @@ let word_tmpl = `<div class="word">
   <button class="play" @click="play">play</button>
 </div>
 <hr />
-<template v-if="state == 0">
+<template v-if="state == ls.start">
   <div class="options">
     <button class="option" v-for="option in word.options" :key="option" @click="pick(option)">
       {{ option }}
@@ -68,7 +68,7 @@ Vue.component('level', {
     },
     close: function() {
       this.index = 0;
-      this.state = ls.stat;
+      this.state = ls.start;
       
       $.get('/close', function(data){
         console.log('closed'); 
@@ -81,7 +81,9 @@ Vue.component('level', {
         console.log('got'); 
         console.log(this);
         that.state = ls.word;
-        that.res = data;
+        that.res = data.data;
+        that.USER_STATE=data.USER_STATE;
+        that.LEVEL_COUNT=data.LEVEL_COUNT;
       });    
     }
   },
@@ -92,7 +94,7 @@ Vue.component('level', {
     }
   },
   data() {
-    return { state: ls.stat, index: 0, res: [] };
+    return { state: ls.start, index: 0, res: [], USER_STATE: 0, LEVEL_COUNT: 0 };
   }
 });
 
